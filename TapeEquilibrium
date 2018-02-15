@@ -1,0 +1,17 @@
+class Solution {
+    public int solution(int[] A) {
+        int sum = 0;
+		int partOne = 0;
+		int partTwo = sum;
+		int difference = Integer.MAX_VALUE;
+		for(int i=0; i<A.length; i++){
+			sum = sum + A[i];
+		}
+		for(int j=1; j<A.length; j++){
+			partOne += A[j-1];
+			partTwo = sum - partOne;
+			difference = Math.min(difference, Math.abs(partOne-partTwo));
+		}
+		return difference;
+    }
+}
