@@ -19,3 +19,20 @@ class Solution {
 }
 
 // Solution 2 ... 100/100
+class Solution {
+    public int solution(int[] A) {
+        int zeroCounter = 0;
+        int passCounter = 0;
+        for(int i=0; i<A.length; i++){
+            if(A[i]==0){
+                zeroCounter++;
+            } else if((A[i])==1){
+                passCounter += zeroCounter;
+            }
+            if(passCounter>1000000000){
+            return -1;
+            }
+        }
+    return passCounter;
+    }
+}
