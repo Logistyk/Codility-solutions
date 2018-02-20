@@ -1,0 +1,21 @@
+// Solution 1 ... 100/0
+class Solution {
+    public int solution(int[] A) {
+        int counter = 0;
+        for(int i=0; i<A.length; i++){
+            if(A[i]==0){
+                for(int j=i; j<A.length; j++){
+                    if(A[j]==1){
+                        counter++;
+                    }
+                }
+            }
+        }
+        if(counter>1000000000){
+            return -1;
+        }
+    return counter;
+    }
+}
+
+// Solution 2 ... 100/100
