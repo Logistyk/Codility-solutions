@@ -1,0 +1,23 @@
+Solution 100/25...
+
+class Solution {
+    public int solution(int[] A) {
+        long[][] disc = new long[A.length][2];
+        for(int i=0; i<A.length; i++){
+            long leftEnd = i-(long)A[i];
+            long rightEnd = i+(long)A[i];
+            disc[i][0] = leftEnd;
+            disc[i][1] = rightEnd;
+        }
+        int counter = 0;
+        for(int i=0; i<A.length-1; i++){
+            for(int j=i+1; j<A.length; j++){
+                if(disc[i][1]>=disc[j][0]){
+                    counter++;
+                } 
+            }
+        }
+        if(counter>10000000) return -1;
+        return counter;
+    }
+}
