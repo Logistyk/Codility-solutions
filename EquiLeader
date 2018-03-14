@@ -1,0 +1,48 @@
+Solution 100/100...
+
+import java.util.*;
+
+class Solution {
+    public int solution(int[] A) {
+        Stack<Integer> stack = new Stack<>();
+        int leaderIndex = 0;
+        int candidate = -1;
+        int counter = 0;
+        for(int i=0; i<A.length; i++){
+            if(stack.empty()){
+                stack.push(A[i]);
+            } else if(stack.peek()==A[i]) {
+                stack.push(A[i]);
+            } else {
+                stack.pop();
+            }
+        }
+        if(!stack.empty()){
+            candidate = stack.peek();
+        } else return 0;
+        
+        for(int i=0; i<A.length; i++){
+            if(A[i] == candidate){
+                counter++;
+                leaderIndex = i;
+            }
+        }
+        if(counter<A.length/2){
+            return 0;
+        }
+
+        int equiCounter = 0;
+        int leaderCounter = 0;
+        for(int i=0;i<A.length;i++) {
+            if (A[i] == candidate) {
+                leaderCounter++;    
+            }
+            
+            if(leaderCounter>(i+1)/2  && (counter-leaderCounter)>(A.length-i-1)/2) {
+                equiCounter++;    
+            }
+        }
+        
+        return equiCounter;
+    }
+}
