@@ -1,0 +1,15 @@
+Solution 100/100...
+
+class Solution {
+    public int solution(int N) {
+        int sqrtN = (int) Math.sqrt(N);
+        int perimeter = 0;
+        for(int i=sqrtN; i>0; i--){
+            if(N % i == 0){
+                perimeter = (i*2)+(N/i*2);
+                break;
+            }
+        }
+        return perimeter;
+    }
+}
