@@ -1,0 +1,21 @@
+Solution 100/100...
+
+class Solution {
+    public int solution(int[] A) {
+        int[] leftMax = new int[A.length];
+        int[] rightMax = new int[A.length];
+        int maxDoubleSlice = 0;
+        for(int i=1; i<A.length; i++){
+            leftMax[i] = Math.max(0, leftMax[i-1]+A[i]);
+        }
+        for(int i=A.length-2; i>=0; i--){
+            rightMax[i] = Math.max(0, rightMax[i+1]+A[i]);
+        }
+        for(int i=1; i<A.length-1; i++){
+            if(leftMax[i-1]+rightMax[i+1]>maxDoubleSlice){
+                maxDoubleSlice = leftMax[i-1]+rightMax[i+1];
+            }
+        }
+    return maxDoubleSlice;
+    }
+}
