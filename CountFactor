@@ -1,0 +1,32 @@
+Solution 100/33...
+
+class Solution {
+    public int solution(int N) {
+        int counter = 0;
+        for(int i=1; i<=N; i++){
+            if(N % i == 0){
+                counter++;
+            }
+        }
+        return counter;
+    }
+}
+
+Solution 100/100...
+
+class Solution {
+    public int solution(int N) {
+        int sqrtN = (int)Math.sqrt(N);
+        int counter = 0;
+        for(int i=1; i<=sqrtN; i++){
+            if(N % i == 0){
+                counter++;
+            }
+        }
+        counter = counter*2;
+        if(sqrtN*sqrtN==N){
+            counter--;
+        }
+        return counter;
+    }
+}
